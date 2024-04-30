@@ -21,18 +21,19 @@ function buildDeck() {
 }
 
 function shuffleDeck() {
-    buildDeck();
-    for (let i = 0; i < deck.length; i++) {
-        let j = Math.floor(Math.random() * deck.length);
-        let temp = deck[i];
-        deck[i] = deck[j];
-        deck[j] = temp;
-    }
+    if (confirm("Are you sure you want to shuffle?")){
+        buildDeck();
+        for (let i = 0; i < deck.length; i++) {
+            let j = Math.floor(Math.random() * deck.length);
+            let temp = deck[i];
+            deck[i] = deck[j];
+            deck[j] = temp;
+        }
 
-    document.getElementById("discard-card").src = "";    
-    cardHistory = [];
-    document.getElementById("card-history-values").innerHTML = cardHistory;
-
+        document.getElementById("discard-card").src = "";    
+        cardHistory = [];
+        document.getElementById("card-history-values").innerHTML = cardHistory;
+    }  
 }
 
 function startGame() {
